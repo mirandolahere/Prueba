@@ -1,18 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/layout_colors"
+    android:layout_gravity="center"
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_margin="20sp"
+        android:background="@drawable/border_corners_login"
+        android:gravity="center"
+        android:paddingLeft="20sp"
+        android:paddingTop="30sp"
+        android:paddingRight="20sp"
+        android:paddingBottom="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="25sp"
+            android:background="@drawable/edtx_login_background"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="8dp"
+            android:hint="@string/usuario"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="13sp"
+            android:textAllCaps="false"
+            android:textColor="@color/marcaHeader"
+            android:textColorHint="@color/marcaHeader"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/etUsuario"
+            android:background="@drawable/edtx_login_background"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="8dp"
+            android:textColor="@color/marcaHeader"
+            android:hint="@string/contrase_a"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingStart="13sp"
+            android:textColorHint="@color/marcaHeader"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/etPassword"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_login"
+            android:isScrollContainer="true"
+            android:text="@string/ingresar"
+            android:textAllCaps="false"
+            android:textColor="#fff" />
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="64dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

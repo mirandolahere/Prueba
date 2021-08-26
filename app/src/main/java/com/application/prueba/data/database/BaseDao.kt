@@ -22,6 +22,14 @@ abstract class BaseDao<T>(private val entityClass: Class<T>) {
     @Delete
     abstract suspend fun delete(list: List<T>)
 
+    suspend fun getById(id:Int): T {
+        val query = SimpleSQLiteQuery("SELECT * FROM ${DatabaseService(entityClass).getTableName()} WHERE ID = " +id)
+        return queryGetOne(query)
+    }
+    suspend fun deleteById(id:Int) : Int {
+        val query = SimpleSQLiteQuery("DELETE FROM ${DatabaseService(entityClass).getTableName()} WHERE ID = " +id)
+        return queryClearBy(query)
+    }
     suspend fun getAll(): List<T> {
         val query = SimpleSQLiteQuery("SELECT * FROM ${DatabaseService(entityClass).getTableName()}")
         return queryGetAll(query)
@@ -36,7 +44,13 @@ abstract class BaseDao<T>(private val entityClass: Class<T>) {
     protected abstract suspend fun queryGetAll(query: SupportSQLiteQuery?): List<T>
 
     @RawQuery
+    protected abstract suspend fun queryGetOne(query: SupportSQLiteQuery?): T
+
+    @RawQuery
     protected abstract suspend fun queryClear(query: SupportSQLiteQuery?): Int
+
+    @RawQuery
+    protected abstract suspend fun queryClearBy(query: SupportSQLiteQuery?) : Int
 }
 
 open class DatabaseService<T>(private val entityClass: Class<T>) {

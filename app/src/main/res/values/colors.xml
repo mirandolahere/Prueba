@@ -11,5 +11,7 @@
     <color name="backgroundLogin"> #F9F9F9</color>
     <color name="borderet">#D4D4D4</color>
     <color name="celeste"> #1487C9</color>
+    <color name="marcaPrimary"> #F1F0F0</color>
+
 
 </resources>
