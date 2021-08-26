@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
             //binding.progressBar.visible(it is Resource.Loading)
             when (it) {
                 is Resource.Success -> {
-                    if(it.datos.size <=6) {
+
                         binding.llPg.removeAllViews()
                         var tableTipo = LinearLayout(context)
                         tableTipo.gravity = Gravity.CENTER_HORIZONTAL
@@ -98,9 +98,7 @@ class HomeFragment : Fragment() {
                         }
 
                         binding.llPg.addView(tableTipo)
-
-                    }
-                    else {
+                    if(it.datos.size >=6) {
                         binding.btnCargar.isEnabled = true
                         binding.btnCargar.setBackgroundResource(R.drawable.border_corners_login)
                     }
