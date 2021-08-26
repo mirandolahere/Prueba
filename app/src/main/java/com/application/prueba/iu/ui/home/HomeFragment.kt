@@ -99,8 +99,8 @@ class HomeFragment : Fragment() {
 
                         binding.llPg.addView(tableTipo)
                     if(it.datos.size >=6) {
-                        binding.btnCargar.isEnabled = true
-                        binding.btnCargar.setBackgroundResource(R.drawable.border_corners_login)
+                        binding.btnCargar.isEnabled = false
+                        binding.btnCargar.setBackgroundColor(R.drawable.border_corners_login)
                     }
 
                 }
