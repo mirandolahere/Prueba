@@ -102,6 +102,11 @@ class HomeFragment : Fragment() {
                         binding.btnCargar.isEnabled = false
                         binding.btnCargar.setBackgroundColor(R.drawable.border_corners_login)
                     }
+                    else
+                    {
+                        binding.btnCargar.isEnabled = true
+                        binding.btnCargar.setBackgroundColor(R.drawable.btn_login)
+                    }
 
                 }
                 is Resource.Failure -> {
